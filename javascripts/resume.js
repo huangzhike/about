@@ -14,9 +14,9 @@ console.log(answer[0].getElementsByTagName("p")[0]);
 
 
 
+var sidebar=document.getElementById('sidebar');
 
-
-
+var button=document.getElementsByClassName('button');
 
 //回答赋值宽度
 var answer_w=[];
@@ -28,22 +28,6 @@ answer_w[i][j]=answer[i].getElementsByTagName("p")[j].offsetWidth;
 answer[i].getElementsByTagName("p")[j].style.width=answer_w[i][j]+"px";
 }
 }
-
-// answer[i].style.display="block";
-// answer[i].style.visibility="hidden";
-
-// answer[i].style.visibility="visible";
-// answer[i].style.display="none";
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -85,7 +69,7 @@ welcome.style.display="none";
 var e_l=document.getElementById("e_l");
 // document.getElementsByTagName('body')[0].style.display="none";
 document.getElementById('loading').style.display="block";
- document.getElementById('e_l').style.display="none";
+document.getElementById('e_l').style.display="none";
 
 welcome.style.display="block";
 
@@ -102,7 +86,7 @@ setTimeout(function(){
 document.getElementById('loading').style.display="block";
 document.getElementById('loading').style.display="none";
 
- document.getElementById('e_l').style.display="block";
+document.getElementById('e_l').style.display="block";
 },1000)
 
 
@@ -126,6 +110,10 @@ welcome.style.display="none";
 var myskills_out=document.getElementsByClassName('myskills_out');
 for (var i = 0; i < myskills_out.length; i++) {
 addClass(myskills_out[i],"skills_on");
+}
+addClass(sidebar,"sidebar_on")
+for (var i = 0; i < button.length; i++) {
+addClass(button[i],"b_on")
 }
 
 },4000);
@@ -183,6 +171,7 @@ hello.style.width=hello_w+"px";
 
 setTimeout(function(){
 hello.style.display="none";
+hello.style.width="50px";
 },2500);
 
 
@@ -290,9 +279,6 @@ function remove(){
 removeClass(answer[that.index],"ans_on");
 }
 move(answer[i].getElementsByTagName("p")[j],{left:1.1*width},(j+1)*5,remove);
-
-
-
 }else{
 move(answer[i].getElementsByTagName("p")[j],{left:1.1*width},(j+1)*5);
 }
@@ -317,9 +303,8 @@ bye.style.width= bye_w+"px";
 
 setTimeout(function(){
 bye.style.display="none";
-//viewback_up.style.height="50%";
+bye.style.width="50px";
 changeClass(viewback_up,"up_off","up_on");
-//viewback_down.style.height="50%";
 changeClass(viewback_down,"down_off","down_on");
 document.getElementsByTagName('body')[0].style.overflowY="auto";
 },3000);
@@ -331,7 +316,35 @@ document.getElementsByTagName('body')[0].style.overflowY="auto";
 
 };
 
+
+
 var demo=document.getElementsByClassName("demo");
+var wraper=document.getElementsByClassName('wraper');
+var round=document.getElementsByClassName('round');
+var way=document.getElementsByClassName('way');
+
+
+function show_i(){
+	
+		round[0].style.opacity="1";
+		way[0].style.height="143%"
+		setTimeout(function(){
+			round[1].style.opacity="1";
+			way[1].style.height="143%"
+		},1000);
+		setTimeout(function(){
+			round[2].style.opacity="1";
+			way[2].style.height="143%"
+		},1000);
+		setTimeout(function(){
+			round[3].style.opacity="1";
+			way[3].style.height="163%"
+		},3000);
+	
+	
+	
+}
+
 
 var totop=document.getElementById("totop");
 var clientHeight=document.documentElement.clientHeight|| document.body.clientHeight;
@@ -343,24 +356,42 @@ window.onscroll=function(){
 
 var disdance=document.documentElement.scrollTop||document.body.scrollTop;
 
+console.time("test")
 
+for (var i = 0; i < wraper.length; i++) {
 
-
-for (var i = 0; i < demo.length; i++) {
-
-
-
-	if(demo[i].offsetTop){
-
-if(i!=demo.length-1){if (demo[i].offsetTop-clientHeight/3<disdance&&disdance<demo[i+1].offsetTop-clientHeight/3){addClass(demo[i],"demo_on");}
-else{	removeClass(demo[i],"demo_on")	}}
-else if(i==demo.length-1) {	if(demo[i].offsetTop-clientHeight/3<disdance)
-					{	addClass(demo[i],"demo_on");}else{	removeClass(demo[i],"demo_on")	}
-			}
-		
-			}
-
+if( wraper[i].offsetTop){
+if(i!= wraper.length-1){
+if ( wraper[i].offsetTop-clientHeight/2<disdance&&disdance< wraper[i+1].offsetTop-clientHeight/2){
+if(i==0){
+	show_i();
 }
+
+addClass(demo[i],"demo_on");
+demo[i].style.opacity="1";
+round[i].style.backgroundColor="#ed5565";
+way[i].getElementsByTagName('span')[0].style.width="280px";
+}else{ 
+removeClass(demo[i],"demo_on")
+round[i].style.backgroundColor="#333";
+way[i].getElementsByTagName('span')[0].style.width="0px";
+}
+}else if(i== wraper.length-1){ 
+if( wraper[i].offsetTop-clientHeight/2<disdance){
+addClass(demo[i],"demo_on");
+demo[i].style.opacity="1";
+round[i].style.backgroundColor="#ed5565";
+way[i].getElementsByTagName('span')[0].style.width="280px";
+}else{
+removeClass(demo[i],"demo_on") 
+round[i].style.backgroundColor="#333";
+way[i].getElementsByTagName('span')[0].style.width="0px";
+}
+}
+}
+}
+
+console.timeEnd("test")
 
 
 
@@ -530,7 +561,7 @@ function hasClass(ele,cls) {
 return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
 }
 function addClass(ele,cls) {
-if (!this.hasClass(ele,cls)) 
+if (!this.hasClass(ele,cls))
 ele.className += " "+cls;
 }
 function removeClass(ele,cls) {
@@ -558,44 +589,38 @@ addClass(ele,newcls);
 
 
 
+console.info("%c正在寻找伯乐，寻找给自己发展机会的公司，我会用最大的努力回复你的认同。请联系我","color:#fff;font-size:16px;text-shadow:1px 1px red;backgroundColor:#ed5565;padding:4px;border-radius:3px")
+
 console.log([
-    "                   _ooOoo_",
-    "                  o8888888o",
-    "                  88\" . \"88",
-    "                  (  -_-  )",
-    "                  O\\  =  /O",
-    "               ____/`---'\\____",
-    "             .'  \\\\|     |//  `.",
-    "            /  \\\\|||  :  |||//  \\",
-    "           /  _||||| -:- |||||-  \\",
-    "           |   | \\\\\\  -  /// |   |",
-    "           | \\_|  ''\\---/''  |   |",
-    "           \\  .-\\__  `-`  ___/-. /",
-    "         ___`. .'  /--.--\\  `. . __",
-    "      .\"\" '<  `.___\\_<|>_/___.'  >'\"\".",
-    "     | | :  `- \\`.;`\\ _ /`;.`/ - ` : | |",
-    "     \\  \\ `-.   \\_ __\\ /__ _/   .-` /  /",
-    "======`-.____`-.___\\_____/___.-`____.-'======",
-    "                   `=---='",
-    "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
-    "         佛祖保佑       永无BUG"
+"简历弄完了。。。顺便写写感想",
+"嗯，这个简历从构思到代码都是自己完成的，也从大神获取了不少灵感",
+"因为是简历，所以写了很多花哨的效果，其实我是一个朴实的人，喜欢的是极简。。。",
+"写简历最难的不是技术，而是构思设计，磕磕绊绊推翻重写了好几次，也体会到设计师和码农的辛苦",
+"虽然设计简陋，但我有创意对吧",
+"虽然代码又丑又烂，但我有创意对吧，没创意也有诚意吧。。。",
+"还在不断提高自己水平，不断学习中。。。"
 ].join('\n'));
 
 console.log([
-    "欢迎联系（为了一份工作我也是拉下老脸了）",
-    "微信号：shinning_fingers",
-    "邮箱：heavenlystate@163.com",
-    "电话：？"
-].join('\n'));
-
-
-
-console.log([
-    "简历完成了。。。既然你都看到这里了干脆把下面也看完吧。",
-    "嗯，这个简历从构思到代码都是自己完成的，其中也从别的大神获取了不少创意，",
-    "因为是简历，所以写了很多花哨的效果，其实我是一个朴实的人，喜欢的是极简。。。",
-    "好多次纠结该如何设计页面，该用css还是js，磕磕绊绊经历了好几次推翻重构，也体会到设计师和码农的辛苦，",
-    "虽然设计很简陋，起码我有创意对吧，",
-    "虽然代码又丑又烂，但我有创意对吧，就算没创意也有诚意对吧。。。",
-    "还在不断提高自己技术水平，求大神带我飞。。。"
+" ┏┓　 ┏┓",
+"┏┛┻━━━┛┻┓+ + +",
+"┃｜｜｜｜｜｜｜┃+ +",
+"████━████",
+"┃　　　　　　　┃+ + +",
+"┃　　　┻　　　┃+ + + +",
+"┃　　　　　　　┃",
+"┗━┓　　　┏━┛",
+" ┃　 　┃　　+ + + +",
+"　　┃ 　┃　+ + +　",
+"　　┃　 　┃　+ + +",
+"　　┃　 　┃",
+"　　┃　　　┗━━━┓ + + +",
+"　　┃ 　┣┓ + ",
+"　　┃ 　┃",
+" 　┗┓┓┏━┳┓┏┛",
+"　　　┃┫┫　┃┫┫ + +",
+"　　　┗┻┛　┗┻┛ + + + +",
+"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+"Code is far away from bugs under the god animal protection. ",
+"I love animals. They are delicious."
 ].join('\n'));
