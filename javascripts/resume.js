@@ -2,7 +2,7 @@ window.onload=function(){
 var view=document.getElementById('view');
 var viewback_up=document.getElementById('viewback_up');
 var viewback_down=document.getElementById('viewback_down');
-var welcome=document.getElementById('welcome');
+
 var question_box=document.getElementById('question_box');
 var question=document.getElementsByClassName('question');
 
@@ -12,11 +12,10 @@ var halfWidth=width/2;
 var answer=document.getElementsByClassName("answer");
 console.log(answer[0].getElementsByTagName("p")[0]);
 
-
-
-var sidebar=document.getElementById('sidebar');
-
+var header=document.getElementById('header');
 var button=document.getElementsByClassName('button');
+
+var body=document.getElementsByTagName('body')[0];
 
 //回答赋值宽度
 var answer_w=[];
@@ -29,15 +28,14 @@ answer[i].getElementsByTagName("p")[j].style.width=answer_w[i][j]+"px";
 }
 }
 
-
-
-
-
-
 var close=document.getElementById('close');
 
+
+//获得打招呼宽度
+var welcome=document.getElementById('welcome');
 var hello=document.getElementById("hello");
 var bye=document.getElementById("bye");
+
 hello.style.display="block";
 hello.style.visibility="hidden";
 var hello_w=hello.clientWidth;
@@ -50,8 +48,6 @@ var bye_w=bye.clientWidth;
 bye.style.visibility="visible";
 bye.style.display="none";
 
-
-
 welcome.style.display="block";
 show_time(welcome.getElementsByTagName("span")[1]);
 welcome.style.visibility="hidden";
@@ -61,73 +57,72 @@ welcome.style.display="none";
 
 
 
-
-
-
 //loading hello
 
-var e_l=document.getElementById("e_l");
+var main=document.getElementById("main");
 // document.getElementsByTagName('body')[0].style.display="none";
 document.getElementById('loading').style.display="block";
-document.getElementById('e_l').style.display="none";
+document.getElementById('main').style.display="none";
 
 welcome.style.display="block";
-
-
 welcome.style.marginLeft=-1*welcome_w/2+"px";
 welcome.style.width="50px";
-setTimeout(function(){
-welcome.style.width=welcome_w+"px";
-},2000);
-
 
 setTimeout(function(){
-// document.getElementsByTagName('body')[0].style.display="block";
-document.getElementById('loading').style.display="block";
 document.getElementById('loading').style.display="none";
-
-document.getElementById('e_l').style.display="block";
+document.getElementById('main').style.display="block";
 },1000)
-
 
 setTimeout(function(){
 addClass(viewback_up,"up_off");
 addClass(viewback_down,"down_off");
-document.getElementsByTagName('body')[0].style.overflowY="hidden";
+body.style.overflowY="hidden";
 },1100)
 
-
+setTimeout(function(){
+welcome.style.width=welcome_w+"px";
+},2000);
 
 setTimeout(function(){
-
-// viewback_up.style.height="50%";
-changeClass(viewback_up,"up_off","up_on");
-
-//viewback_down.style.height="50%";
-changeClass(viewback_down,"down_off","down_on");
-document.getElementsByTagName('body')[0].style.overflowY="auto";
+removeClass(viewback_up,"up_off");
+removeClass(viewback_down,"down_off");
+body.style.overflowY="auto";
 welcome.style.display="none";
 var myskills_out=document.getElementsByClassName('myskills_out');
 for (var i = 0; i < myskills_out.length; i++) {
 addClass(myskills_out[i],"skills_on");
 }
-addClass(sidebar,"sidebar_on")
+addClass(header,"header_on");
 for (var i = 0; i < button.length; i++) {
 addClass(button[i],"b_on")
 }
-
 },4000);
 
 
 
-// 面试模块
-
+// 面试
 view.onclick=function(){
-
 var say_time=hello.getElementsByTagName('span')[0].getElementsByTagName('span')[0];
 
-
 show_time(say_time);
+
+viewback_up.className="up_off";
+viewback_down.className="down_off";
+body.style.overflowY="hidden";
+close.style.display="block";
+
+hello.style.display="block";
+hello.style.marginLeft=-1*hello_w/2+"px";
+hello.style.width="50px";
+
+setTimeout(function(){
+hello.style.width=hello_w+"px";
+},1000);
+
+setTimeout(function(){
+hello.style.display="none";
+hello.style.width="50px";
+},2500);
 
 setTimeout(function(){
 question_box.style.display="block";
@@ -136,7 +131,6 @@ question_box.style.display="block";
 setTimeout(function(){
 addClass(question_box,"box_on") ;
 },3000);
-
 
 setTimeout(function(){
 addClass(question[0],"que_on") ;
@@ -155,27 +149,6 @@ addClass(question[3],"que_on") ;
 },5500);
 
 
-viewback_up.className="up_off";
-viewback_down.className="down_off";
-document.getElementsByTagName('body')[0].style.overflowY="hidden";
-close.style.display="block";
-
-
-hello.style.display="block";
-hello.style.marginLeft=-1*hello_w/2+"px";
-hello.style.width="50px";
-
-setTimeout(function(){
-hello.style.width=hello_w+"px";
-},1000);
-
-setTimeout(function(){
-hello.style.display="none";
-hello.style.width="50px";
-},2500);
-
-
-
 
 
 var num=-1;
@@ -183,7 +156,6 @@ for (var i = 0; i < question.length; i++) {
 question[i].index=i
 question[i].onclick=function(){
 var that=this;
-
 
 for(var l = 0; l < question.length; l++){
 if(l==that.index){
@@ -193,52 +165,41 @@ removeClass(question[l],"hover");
 }
 }
 
-
-
 if (num!=that.index&&num!=-1) {
-console.log("a"+num);
+//console.log("a"+num);
 for (var k = 0; k< answer[num].getElementsByTagName("p").length; k++) {
-
 if(k==answer[num].getElementsByTagName("p").length-1){
 move(answer[num].getElementsByTagName("p")[k],{left:1.1*width},(k+1)*4,add);
 }else{
 move(answer[num].getElementsByTagName("p")[k],{left:1.1*width},(k+1)*4);
 }
-
 }
 
 function add(){
-
-
 removeClass(answer[num],"ans_on");
 addClass(answer[that.index],"ans_on");
 
 for (var j= 0; j< answer[that.index].getElementsByTagName("p").length; j++) {
 answer[that.index].getElementsByTagName("p")[j].style.visibility="visible";
 // addClass(answer[that.index].getElementsByTagName("p")[j],"ans_on");
-
 if(j==answer[that.index].getElementsByTagName("p").length-1){
-console.log("b"+num);
+//console.log("b"+num);
 num=that.index;
-console.log("c"+num);
+//console.log("c"+num);
 }
 }
-
 }
-
-
 
 
 
 } else if(num==-1){
-
 addClass(answer[that.index],"ans_on");
 for (var j= 0; j< answer[that.index].getElementsByTagName("p").length; j++) {
 answer[that.index].getElementsByTagName("p")[j].style.visibility="visible";
 if(j==answer[that.index].getElementsByTagName("p").length-1){
-console.log("b"+num);
+//console.log("b"+num);
 num=that.index;
-console.log("d"+num);
+//console.log("d"+num);
 }
 }
 }
@@ -256,7 +217,6 @@ console.log("d"+num);
 };
 
 
-viewback_down.onclick=function(){};
 
 
 
@@ -266,8 +226,6 @@ for(var l = 0; l < question.length; l++){
 removeClass(question[l],"hover");
 removeClass(question[l],"que_on");
 }
-
-
 
 for (var i = 0; i< answer.length; i++) {
 if( hasClass(answer[i],"ans_on")){
@@ -283,10 +241,7 @@ move(answer[i].getElementsByTagName("p")[j],{left:1.1*width},(j+1)*5,remove);
 move(answer[i].getElementsByTagName("p")[j],{left:1.1*width},(j+1)*5);
 }
 }
-
-
 }
-
 }
 
 //console.log("num"+num);
@@ -304,14 +259,10 @@ bye.style.width= bye_w+"px";
 setTimeout(function(){
 bye.style.display="none";
 bye.style.width="50px";
-changeClass(viewback_up,"up_off","up_on");
-changeClass(viewback_down,"down_off","down_on");
+removeClass(viewback_up,"up_off");
+removeClass(viewback_down,"down_off");
 document.getElementsByTagName('body')[0].style.overflowY="auto";
 },3000);
-
-
-
-
 
 
 };
@@ -322,27 +273,23 @@ var demo=document.getElementsByClassName("demo");
 var wraper=document.getElementsByClassName('wraper');
 var round=document.getElementsByClassName('round');
 var way=document.getElementsByClassName('way');
-
+var hor=document.getElementsByClassName('hor');
 
 function show_i(){
-	
-		round[0].style.opacity="1";
-		way[0].style.height="143%"
-		setTimeout(function(){
-			round[1].style.opacity="1";
-			way[1].style.height="143%"
-		},1000);
-		setTimeout(function(){
-			round[2].style.opacity="1";
-			way[2].style.height="143%"
-		},1000);
-		setTimeout(function(){
-			round[3].style.opacity="1";
-			way[3].style.height="163%"
-		},3000);
-	
-	
-	
+round[0].style.opacity="1";
+way[0].style.height="121%"
+setTimeout(function(){
+round[1].style.opacity="1";
+way[1].style.height="121%"
+},1000);
+setTimeout(function(){
+round[2].style.opacity="1";
+way[2].style.height="121%"
+},1000);
+setTimeout(function(){
+round[3].style.opacity="1";
+way[3].style.height="133%"
+},3000);
 }
 
 
@@ -351,57 +298,55 @@ var clientHeight=document.documentElement.clientHeight|| document.body.clientHei
 var timer=null;
 var istop =true;
 
-// 显示回到顶部
+
+
+
+
 window.onscroll=function(){
 
 var disdance=document.documentElement.scrollTop||document.body.scrollTop;
 
-console.time("test")
-
+// console.time("test")
 for (var i = 0; i < wraper.length; i++) {
 
 if( wraper[i].offsetTop){
 if(i!= wraper.length-1){
 if ( wraper[i].offsetTop-clientHeight/2<disdance&&disdance< wraper[i+1].offsetTop-clientHeight/2){
 if(i==0){
-	show_i();
+show_i();
 }
-
 addClass(demo[i],"demo_on");
 demo[i].style.opacity="1";
 round[i].style.backgroundColor="#ed5565";
-way[i].getElementsByTagName('span')[0].style.width="280px";
-}else{ 
+hor[i].style.width="305px";
+}else{
 removeClass(demo[i],"demo_on")
 round[i].style.backgroundColor="#333";
-way[i].getElementsByTagName('span')[0].style.width="0px";
+hor[i].style.width="0px";
 }
-}else if(i== wraper.length-1){ 
+}else if(i== wraper.length-1){
 if( wraper[i].offsetTop-clientHeight/2<disdance){
 addClass(demo[i],"demo_on");
 demo[i].style.opacity="1";
 round[i].style.backgroundColor="#ed5565";
-way[i].getElementsByTagName('span')[0].style.width="280px";
+hor[i].style.width="305px";
 }else{
-removeClass(demo[i],"demo_on") 
+removeClass(demo[i],"demo_on")
 round[i].style.backgroundColor="#333";
-way[i].getElementsByTagName('span')[0].style.width="0px";
+hor[i].style.width="0px";
 }
 }
 }
 }
-
-console.timeEnd("test")
-
+// console.timeEnd("test")
 
 
+// 显示回到顶部
 if(disdance>=clientHeight){
 totop.style.display="block";
 setTimeout(function(){totop.style.opacity="1"},500);
-
 }
 else {
-
 setTimeout(function(){totop.style.display="none";},300);
 totop.style.opacity="0";
 }
@@ -417,7 +362,7 @@ clearInterval(timer);
 }
 timer=setInterval(function(){
 var disdance=document.documentElement.scrollTop||document.body.scrollTop;
-var pace= Math.floor(-disdance/7);
+var pace= Math.floor(-disdance/15);
 document.documentElement.scrollTop=document.body.scrollTop=disdance+pace;
 istop=false;
 if(disdance==0){
@@ -432,10 +377,6 @@ istop=true;
 
 
 
-
-
-
-
 }
 
 
@@ -444,16 +385,7 @@ istop=true;
 
 
 
-
-
-
-
-
-
-
-
 // 关于move函数，本来打算是用css transition和 translate结合js addClass函数及setTimeout完成的，但效果不满意，于是在网上找到了一个函数，在其基础上做了修改并添加了可爱的注释O(∩_∩)O~~
-
 //移动到指定位置，格式{left:10, top:30}或{left:10}或{top:30}；speed:速度 1-100，默认10
 var move = function(element, position, speed,callback){
 if(typeof(element)=='string')
@@ -531,7 +463,6 @@ callback();
 
 
 function show_time(obj){
-
 var time = new Date().getHours();
 if (time > 5 && time < 12){
 obj.innerHTML="早上好";
@@ -548,22 +479,17 @@ obj.innerHTML="晚上好";
 else {
 obj.innerHTML="凌晨好";
 }
-
 }
-
-
-
-
-
-
 
 function hasClass(ele,cls) {
 return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
 }
+
 function addClass(ele,cls) {
 if (!this.hasClass(ele,cls))
 ele.className += " "+cls;
 }
+
 function removeClass(ele,cls) {
 if (hasClass(ele,cls)) {
 var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
@@ -578,6 +504,7 @@ removeClass(ele,cls);
 else
 addClass(ele,cls);
 }
+
 function changeClass(ele,oldcls,newcls) {
 if (!hasClass(ele,newcls)) {
 if(hasClass(ele,oldcls)){
@@ -588,39 +515,13 @@ addClass(ele,newcls);
 }
 
 
-
-console.info("%c正在寻找伯乐，寻找给自己发展机会的公司，我会用最大的努力回复你的认同。请联系我","color:#fff;font-size:16px;text-shadow:1px 1px red;backgroundColor:#ed5565;padding:4px;border-radius:3px")
-
-console.log([
-"简历弄完了。。。顺便写写感想",
-"嗯，这个简历从构思到代码都是自己完成的，也从大神获取了不少灵感",
-"因为是简历，所以写了很多花哨的效果，其实我是一个朴实的人，喜欢的是极简。。。",
-"写简历最难的不是技术，而是构思设计，磕磕绊绊推翻重写了好几次，也体会到设计师和码农的辛苦",
-"虽然设计简陋，但我有创意对吧",
-"虽然代码又丑又烂，但我有创意对吧，没创意也有诚意吧。。。",
-"还在不断提高自己水平，不断学习中。。。"
-].join('\n'));
+console.info("%c寻找给自己发展机会的公司，我会用最大的努力回复你的认同。请联系我","color:#fff;font-size:16px;text-shadow:1px 1px #000;background-color:#ed5565;padding:4px;border-radius:3px")
 
 console.log([
-" ┏┓　 ┏┓",
-"┏┛┻━━━┛┻┓+ + +",
-"┃｜｜｜｜｜｜｜┃+ +",
-"████━████",
-"┃　　　　　　　┃+ + +",
-"┃　　　┻　　　┃+ + + +",
-"┃　　　　　　　┃",
-"┗━┓　　　┏━┛",
-" ┃　 　┃　　+ + + +",
-"　　┃ 　┃　+ + +　",
-"　　┃　 　┃　+ + +",
-"　　┃　 　┃",
-"　　┃　　　┗━━━┓ + + +",
-"　　┃ 　┣┓ + ",
-"　　┃ 　┃",
-" 　┗┓┓┏━┳┓┏┛",
-"　　　┃┫┫　┃┫┫ + +",
-"　　　┗┻┛　┗┻┛ + + + +",
-"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
-"Code is far away from bugs under the god animal protection. ",
-"I love animals. They are delicious."
+"简历完成了，以下是感想",
+"嗯，这个简历从构思到代码都是自己完成的（也从别人获得了不少创意），一开始打算写Material Design，后来越写越远，推翻重写好几次，最后效果还满意（开始其实很简陋）",
+"因为是简历，所以写了很多花哨的效果，其实我是一个朴实的人，喜欢极简。。。",
+"写这个简历最难的不是技术，而是构思设计，反反复复好多次，设计师和码农都不容易",
+"实话说，代码写的又丑又烂，for循环，if else一大堆嵌套，有时在IE下就出现莫名其妙的bug（该死的IE）",
+"不断提高自己水平，不断学习中"
 ].join('\n'));
