@@ -17,16 +17,6 @@ var button=document.getElementsByClassName('button');
 
 var body=document.getElementsByTagName('body')[0];
 
-//回答赋值宽度
-var answer_w=[];
-for (var i = 0; i < answer.length; i++) {
-answer_w[i]=[]
-for (var j= 0; j< answer[i].getElementsByTagName("p").length; j++) {
-answer_w[i][j]=answer[i].getElementsByTagName("p")[j].offsetWidth;
-//console.log( answer[i].getElementsByTagName("p")[j].offsetWidth);
-answer[i].getElementsByTagName("p")[j].style.width=answer_w[i][j]+"px";
-}
-}
 
 var close=document.getElementById('close');
 
@@ -38,24 +28,34 @@ var bye=document.getElementById("bye");
 
 hello.style.display="block";
 hello.style.visibility="hidden";
-var hello_w=hello.clientWidth;
+var hello_w=hello.offsetWidth;
 hello.style.visibility="visible";
 hello.style.display="none";
 
 bye.style.display="block";
 bye.style.visibility="hidden";
-var bye_w=bye.clientWidth;
+var bye_w=bye.offsetWidth;
 bye.style.visibility="visible";
 bye.style.display="none";
 
 welcome.style.display="block";
 show_time(welcome.getElementsByTagName("span")[1]);
 welcome.style.visibility="hidden";
-var welcome_w=welcome.clientWidth;
+var welcome_w=welcome.offsetWidth;
 welcome.style.visibility="visible";
 welcome.style.display="none";
 
 
+//回答赋值宽度
+var answer_w=[];
+for (var i = 0; i < answer.length; i++) {
+answer_w[i]=[]
+for (var j= 0; j< answer[i].getElementsByTagName("p").length; j++) {
+answer_w[i][j]=answer[i].getElementsByTagName("p")[j].offsetWidth;
+//console.log( answer[i].getElementsByTagName("p")[j].offsetWidth);
+answer[i].getElementsByTagName("p")[j].style.width=answer_w[i][j]+"px";
+}
+}
 
 //loading hello
 
@@ -106,8 +106,8 @@ var say_time=hello.getElementsByTagName('span')[0].getElementsByTagName('span')[
 
 show_time(say_time);
 
-viewback_up.className="up_off";
-viewback_down.className="down_off";
+addClass(viewback_up,"up_off");
+addClass(viewback_down,"down_off");
 body.style.overflowY="hidden";
 close.style.display="block";
 
@@ -344,7 +344,7 @@ hor[i].style.width="0px";
 // 显示回到顶部
 if(disdance>=clientHeight){
 totop.style.display="block";
-setTimeout(function(){totop.style.opacity="1"},500);
+setTimeout(function(){totop.style.opacity="1";},500);
 }
 else {
 setTimeout(function(){totop.style.display="none";},300);
@@ -362,7 +362,7 @@ clearInterval(timer);
 }
 timer=setInterval(function(){
 var disdance=document.documentElement.scrollTop||document.body.scrollTop;
-var pace= Math.floor(-disdance/15);
+var pace= Math.floor(-disdance/10);
 document.documentElement.scrollTop=document.body.scrollTop=disdance+pace;
 istop=false;
 if(disdance==0){
@@ -466,51 +466,36 @@ function show_time(obj){
 var time = new Date().getHours();
 if (time > 5 && time < 12){
 obj.innerHTML="早上好";
-}
-else if (time >= 12 && time <14){
+}else if (time >= 12 && time <14){
 obj.innerHTML="中午好";
-}
-else if (time >= 14 && time < 19){
+}else if (time >= 14 && time < 19){
 obj.innerHTML="下午好";
-}
-else if (time >= 19 && time < 24){
+}else if (time >= 19 && time < 24){
 obj.innerHTML="晚上好";
-}
-else {
+}else {
 obj.innerHTML="凌晨好";
 }
 }
 
-function hasClass(ele,cls) {
-return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
-}
 
-function addClass(ele,cls) {
-if (!this.hasClass(ele,cls))
-ele.className += " "+cls;
+function hasClass(element,classsName) {
+var a= element.className.split(" ");
+for (var i = 0; i < a.length; i++) {
+if(a[i].match(new RegExp('(\\s|^)'+classsName+'(\\s|$)'))){
+return true
 }
-
-function removeClass(ele,cls) {
-if (hasClass(ele,cls)) {
-var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
-ele.className=ele.className.replace(reg,'');
 }
 }
 
-function toggleClass(ele,cls) {
-if(hasClass(ele,cls)){
-removeClass(ele,cls);
-}
-else
-addClass(ele,cls);
+function addClass(element,className) {
+if (!this.hasClass(element,className))
+element.className += " "+className;
 }
 
-function changeClass(ele,oldcls,newcls) {
-if (!hasClass(ele,newcls)) {
-if(hasClass(ele,oldcls)){
-removeClass(ele,oldcls);
-}
-addClass(ele,newcls);
+function removeClass(element,className) {
+if (hasClass(element,className)) {
+var reg = new RegExp('(\\s|^)'+className+'(\\s|$)');
+element.className=element.className.replace(reg,'');
 }
 }
 
