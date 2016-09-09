@@ -96,9 +96,12 @@ addClass(header,"header_on");
 for (var i = 0; i < button.length; i++) {
 addClass(button[i],"b_on")
 }
+view.style.visibility="visible";
 },4000);
 
-
+setTimeout(function(){
+addClass(view,"view_on");
+},9000);
 
 // 面试
 view.onclick=function(){
