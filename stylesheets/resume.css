@@ -25,6 +25,7 @@ html{
 font-size:62.5%;
 }
 body{
+visibility:hidden;
 color: #FFFFF0;
 font-family: "tahoma","HanHei SC","华文细黑","黑体","微软雅黑";
 text-shadow: 3px 3px 3px rgba(0,0,0,0.36);
