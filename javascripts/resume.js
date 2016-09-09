@@ -16,7 +16,7 @@ var header=document.getElementById('header');
 var button=document.getElementsByClassName('button');
 
 var body=document.getElementsByTagName('body')[0];
-body.style.visibility="hidden";
+
 
 var close=document.getElementById('close');
 
