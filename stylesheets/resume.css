@@ -103,10 +103,8 @@ width: 70% !important;
 display: none !important;
 }
 #view{
-
     top: 100px !important;
-        padding-left: 40px;
- 
+        padding-left: 40px; 
         border-radius: 3px ;
     background-color: rgba(0,0,0,0.4) ;
 }
@@ -204,6 +202,7 @@ left: 5px;
 
 
 #view{
+visibility:hidden;
 z-index: 3;
 display: inline-block;
 position: fixed;
@@ -211,6 +210,14 @@ top: 23px;
 right: 0px;
 transition: all .5s;
 }
+
+#view.view_on{
+   top: 100px ;
+        padding-left: 40px; 
+        border-radius: 3px ;
+    background-color: rgba(0,0,0,0.4) ;
+}
+
 #view:hover{
 cursor: pointer;
 color: #fff;
@@ -236,7 +243,7 @@ color:#f7b2a1;
 #view:hover .hehe{
 opacity: 1;
 filter: alpha(opacity=100);
-bottom: -100%;
+bottom: -150%;
 }
 
 
@@ -276,6 +283,11 @@ opacity: 1;
 filter: alpha(opacity=100);
 bottom: -100%;
 }
+
+#view .hehe{
+padding:10px;
+}
+
 .hehe{
 -webkit-transform: translateZ(0);
 transform: translateZ(0);
@@ -304,7 +316,7 @@ border: 9px solid transparent;
 border-bottom: 9px solid #333;
 position: absolute;
 bottom: 100%;
-left: 80%;
+    right: 10%;
 }
 #header .download{
 margin-top: 28px;
