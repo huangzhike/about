@@ -16,7 +16,7 @@ var header=document.getElementById('header');
 var button=document.getElementsByClassName('button');
 
 var body=document.getElementsByTagName('body')[0];
-
+body.style.visibility="hidden";
 
 var close=document.getElementById('close');
 
@@ -58,7 +58,7 @@ answer[i].getElementsByTagName("p")[j].style.width=answer_w[i][j]+"px";
 }
 
 //loading hello
-
+body.style.visibility="visible";
 var main=document.getElementById("main");
 // document.getElementsByTagName('body')[0].style.display="none";
 document.getElementById('loading').style.display="block";
