@@ -4,8 +4,7 @@ window.onload=function(){
 	var viewback_down=document.getElementById('viewback_down');
 	var question_box=document.getElementById('question_box');
 	var question=document.getElementsByClassName('question');
-	var width=parseInt(Number(document.documentElement.offsetWidth|| document.body.offsetWidth));
-	var halfWidth=width/2;
+		
 	var answer=document.getElementsByClassName("answer");
 	console.log(answer[0].getElementsByTagName("p")[0]);
 	var header=document.getElementById('header');
@@ -16,57 +15,57 @@ window.onload=function(){
 	var welcome=document.getElementById('welcome');
 	var hello=document.getElementById("hello");
 	var bye=document.getElementById("bye");
-	var say_time=hello.getElementsByTagName('span')[0].getElementsByTagName('span')[0];
-
-	show_time(say_time);
-	//获得打招呼宽度
-	function getWidth(obj){
-		obj.style.visibility="hidden";
-		obj.style.display="block";
-		obj.width=obj.offsetWidth;
-		obj.style.visibility="visible";
-		obj.style.display="none";
-	}
-
-	getWidth(welcome);
-	getWidth(hello);
-	getWidth(bye);
-
-	//我的回答赋值宽度，位置，后面用到
-	var answer_w=[];
-
-	for (var i = 0; i < answer.length; i++) {
-		var e=answer[i].getElementsByTagName("p");
-		answer_w[i]=[];
-		for (var j= 0; j< e.length; j++) {
-			answer_w[i][j]=e[j].offsetWidth;
-			e[j].style.width=answer_w[i][j]+"px";
-			e[j].style.left=e[j].offsetLeft+"px";
-		}
-	}
-
-	//loading hello
+	
+	
+function first_view(){
+//loading hello
 	var main=document.getElementById("main");
 	var loading=document.getElementById('loading');
+ var loading_i=loading.getElementsByTagName("span")[0];
+	var body=document.getElementsByTagName('body')[0];
 
-	body.style.visibility="visible";
-	loading.style.display="block";
-	main.style.display="none";
+var main=document.getElementById("main");
+	var loading=document.getElementById('loading');
+ var loading_i=loading.getElementsByTagName("span")[0];
+	var body=document.getElementsByTagName('body')[0];
+getWidth(loading_i);
+loading_i.style.marginLeft=-1*loading_i.width/2+"px";
+loading_i.style.display="block";
+/*	body.style.visibility="visible";*/
+/*	loading.style.display="block";*/
 
-	welcome.style.display="block";
-	welcome.style.marginLeft=-1*welcome.width/2+"px";
-	welcome.style.width="50px";
+
 
 	setTimeout(function(){
 		loading.style.display="none";
 		main.style.display="block";
 	},1000);
 
+/*getWidth(loading_i);
+loading_i.style.marginLeft=-1*loading_i.width/2+"px";
+loading_i.style.display="block";
+
+	loading.style.display="block";
+
+
+	setTimeout(function(){
+		loading.style.display="none";
+		main.style.display="block";
+	},1000);*/
+
 	//遮罩动画
 	setTimeout(function(){
 		addClass(viewback_up,"up_off");
 		addClass(viewback_down,"down_off");
 		body.style.overflowY="hidden";
+			//获得打招呼宽度
+    getWidth(bye);
+getWidth(hello);
+	getWidth(welcome);
+	welcome.style.display="block";
+	welcome.style.marginLeft=-1*welcome.width/2+"px";
+	welcome.style.width="50px";
+
 	},1200);
 
 	//打招呼
@@ -99,14 +98,36 @@ window.onload=function(){
 		addClass(view,"view_on");
 	},9000);
 
+
+}
+
+
+	
 	//点击面试
 	view.onclick=function(){
+var say_time=hello.getElementsByTagName('span')[0].getElementsByTagName('span')[0];
+show_time(say_time);
+
+   var width=parseInt(Number(document.documentElement.offsetWidth|| document.body.offsetWidth));
+	//我的回答赋值宽度，位置，后面用到
+     var answer_w=[];
+    for (var i = 0; i < answer.length; i++) {
+      var e=answer[i].getElementsByTagName("p");
+      answer_w[i]=[];
+      for (var j= 0; j< e.length; j++) {
+        answer_w[i][j]=e[j].offsetWidth;
+        e[j].style.width=answer_w[i][j]+"px";
+        e[j].style.left=e[j].offsetLeft+"px";        
+      }
+    }
+
 		//背景
 		addClass(viewback_up,"up_off");
 		addClass(viewback_down,"down_off");
 		body.style.overflowY="hidden";
 		close.style.display="block";
 		//打招呼
+
 		hello.style.display="block";
 		hello.style.marginLeft=-1*hello.width/2+"px";
 		hello.style.width="50px";
@@ -181,8 +202,10 @@ window.onload=function(){
 	};
 
 
+close.onclick=function(){
+var width=parseInt(Number(document.documentElement.offsetWidth|| document.body.offsetWidth));
+	
 
-	close.onclick=function(){
 		//点击关闭移除
 		removeClass(question_box,"box_on");
 
@@ -282,7 +305,7 @@ window.onload=function(){
 			demo[i].style.opacity="1";
 			round[i].style.opacity="1";
 			round[i].style.backgroundColor="#ed5565";
-			way[i].style.height="130%"
+			way[i].style.height="122%"
 			hor[i].style.width="300px";
 		}
 		function hide_demo(i){
@@ -395,13 +418,13 @@ window.onload=function(){
 // 				}
 // 			}
 // 		}
-// 	}, 5);
+// 	}, 17);
 // };
 
-// 这是更改后的move函数，结合css更简洁高效！
+// move函数ver 2.0，结合css更简洁高效！
 function move(element, position, callback){
 	var original=(function(element){
-		return {left:element.offsetLeft, top:element.offsetTop};		
+		return {left:element.offsetLeft};		
 	})(element); //获得初始位置
 	element.style.left=position.left+"px";
 	setTimeout(function(){
@@ -410,11 +433,18 @@ function move(element, position, callback){
 		if(callback){ //动画完成后回调函数
 			callback();
 		}
-	},1350)
+	},1400)
 };
 
 
-
+function getWidth(obj){
+		obj.style.visibility="hidden";
+		obj.style.display="block";
+		obj.width=obj.offsetWidth;
+		obj.style.visibility="visible";
+		obj.style.display="none";
+console.log(obj.width);
+	}
 
 function show_time(obj){
 	var time = new Date().getHours();
