@@ -8,9 +8,36 @@
 		<title>黄植科-前端开发</title>
 		<link rel="shortcut icon" href="img/logo.png">
 		<link rel="stylesheet" type="text/css" href="stylesheets/resume.css">
+<script type = "text/javascript">
+var js = document.createElement("script");
+js.type = "text/javascript";
+js.src = "javascripts/resume.js";
+document.getElementsByTagName("head")[0].appendChild(js);
+
+js.onload=js.onreadystatechange=function(){  
+   if(!this.readyState||this.readyState=='loaded'||this.readyState=='complete'){  
+   j_s=true; 
+}  
+js.onload=js.onreadystatechange=null; //当出现两种状态之一时，删除readystatechange，以避免事件执行两次 
+} 
+
+document.onload=document.onreadystatechange=function(){  
+   if(!this.readyState||this.readyState=='loaded'||this.readyState=='complete'){  
+   doc=true; 
+alert("1");
+}  
+document.onload=document.onreadystatechange=null; 
+} 
+
+
+if(doc==true&&j_s==true){
+   first_view();
+
+}
+</script>
 	</head>
 <body>
-	<div id="loading"></div>
+	<div id="loading"><div></div><span>l o a d i n g . . . </span></div>
 	<div id="main">
 		<div class="fuck_ie">
 			<!-- 顶部 -->
@@ -25,7 +52,7 @@
 				<span class="edu">
 					<div>
 						<div>中国海洋大学&nbsp;&nbsp;985&nbsp;&nbsp;211工程&nbsp;&nbsp;</div>
-						<div>水产养殖学&nbsp;&nbsp;2017&nbsp;&nbsp;大四应届&nbsp;&nbsp;</div>
+						<div>水产养殖学&nbsp;&nbsp;2017大四应届&nbsp;&nbsp;</div>
 					</div>
 					<div class="hehe">应聘前端开发！</div>
 				</span>
@@ -41,18 +68,18 @@
 					<div class="myskills_out"><div class="myskills cf"><div>热爱前端，热爱互联网，简历是自己设计的（对使用CSS3提升用户体验有浓厚兴趣，喜欢使用CSS3完成Js的效果）；</div></div></div>
 					<div class="myskills_out"><div class="myskills cf"><div>熟练使用Chrome开发者工具等辅助开发；</div></div></div>
 					<div class="myskills_out"><div class="myskills cf"><div>熟悉原生 <span>Javascript</span> ，编写过各种常见Js效果（喜欢简洁高效的代码）；</div></div></div>
-					<div class="myskills_out"><div class="myskills cf"><div><span>Javascript</span> 基础扎实，熟悉this，原型链，作用域，闭包等；</div></div></div>
+					<div class="myskills_out"><div class="myskills cf"><div><span>Javascript</span> 基础扎实，熟悉面向对象，this，原型链，作用域，闭包，熟悉数组，字符串的操作等等；</div></div></div>
 					<div class="myskills_out"><div class="myskills cf"><div>熟悉 <span>JQuery</span> 常用API，并制作各种效果；</div></div></div>
 				</div>
 				<div class="col_right">
 					<div class="myskills_out"><div class="myskills cf"><div>学习过 <span>Bootstrap</span> ；</div></div></div>
 					<div class="myskills_out"><div class="myskills cf"><div>熟悉<span> Ajax</span> ，能处理后台JSON数据；</div></div></div>
 					<div class="myskills_out"><div class="myskills cf"><div><span> Photoshop </span>切图；</div></div></div>
-					<div class="myskills_out"><div class="myskills cf"><div>学习能力优秀，乐于接受新技术（正在系统地学习 <span>PHP</span> ）；</div></div></div>
-					<div class="myskills_out"><div class="myskills cf"><div>英语（六级）良好，能阅读英文技术文档；</div></div></div>
+					<div class="myskills_out"><div class="myskills cf"><div>学习能力优秀，乐于学习（正在系统地学习 <span>PHP</span> ）；</div></div></div>
+					<div class="myskills_out"><div class="myskills cf"><div>英语（六级）良好，能较流畅地阅读英文技术文档；</div></div></div>
 				</div>
 				<div class="col_e">
-					<div class="myskills_out"><div class="myskills cf"><div>目前在寻找前端实习（全职更好o(^▽^)o），希望能加入一个技术氛围良好，积极向上的团队:)</div></div></div>
+					<div class="myskills_out"><div class="myskills cf"><div>目前在寻找前端实习（全职更好 ;-) ），希望能加入一个技术氛围良好，积极向上的团队:)</div></div></div>
 				</div>
 			</div>
 		</div>
@@ -176,8 +203,8 @@
 		</div>
 		<div class="answer">
 			<p>嗯，这是一个悲伤的故事(ಥ _ ಥ)</p>
-			<p>当年本着从小对自然与生物的热爱选择了本专业（其实可以去华南理工），但现实伤我太深(︶︿︶)</p>
-			<p>至于为什么干前端，因为比较有意思，能养活自己</p>
+			<p>当年本着从小对自然与生物的热爱选择了本专业（其实可以去华南理工），但现实深深伤害了我(︶︿︶)</p>
+			<p>至于为什么干前端，因为有意思，能养活自己</p>
 			<p>写页面和编程都是有意思的事，虽然有点累，但结果还是让人满意的</p>
 		</div>
 		<div class="answer">
@@ -192,6 +219,6 @@
 			<p>是一个实在人，你找不到比我更实在的人了（笑）</p>
 		</div>
 	</div>
-	<script type="text/javascript" src="javascripts/resume.js"></script>
+		<!-- <script type="text/javascript" src="resume.js"></script> -->
 </body>
 </html>
