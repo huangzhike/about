@@ -7,37 +7,39 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<title>黄植科-前端开发</title>
 		<link rel="shortcut icon" href="img/logo.png">
-		<link rel="stylesheet" type="text/css" href="stylesheets/resume.css">
+		<link rel="stylesheet" type="text/css" href="resume.css">
 <script type = "text/javascript">
 var js = document.createElement("script");
 js.type = "text/javascript";
-js.src = "javascripts/resume.js";
+js.src = "resume.js";
 document.getElementsByTagName("head")[0].appendChild(js);
-
+var doc,j_s;
 js.onload=js.onreadystatechange=function(){  
-   if(!this.readyState||this.readyState=='loaded'||this.readyState=='complete'){  
+   if(!this.readyState||this.readyState=='loaded'||this.readyState=='complete'){
    j_s=true; 
-}  
+if(doc==true&&j_s==true){
+   first_view();
+  j_s=false; 
+}
 js.onload=js.onreadystatechange=null; //当出现两种状态之一时，删除readystatechange，以避免事件执行两次 
+}  
 } 
 
 document.onload=document.onreadystatechange=function(){  
    if(!this.readyState||this.readyState=='loaded'||this.readyState=='complete'){  
    doc=true; 
-alert("1");
-}  
-document.onload=document.onreadystatechange=null; 
-} 
-
-
 if(doc==true&&j_s==true){
    first_view();
-
+doc=false;
 }
+document.onload=document.onreadystatechange=null; 
+}  
+} 
+
 </script>
 	</head>
 <body>
-	<div id="loading"><div></div><span>l o a d i n g . . . </span></div>
+	<div id="loading"><span>l o a d i n g . . . </span><div></div></div>
 	<div id="main">
 		<div class="fuck_ie">
 			<!-- 顶部 -->
