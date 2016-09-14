@@ -25,7 +25,7 @@ html{
 	font-size:62.5%;
 }
 body{
-	visibility:hidden;
+/*	visibility:hidden;*/
 	color: #FFFFF0;
 	font-family: "微软雅黑","华文细黑";
 	text-shadow: 3px 3px 3px rgba(0,0,0,0.36);
@@ -34,7 +34,7 @@ body{
 	/*将来适配字体*/
 }
 ::selection {
-	background: #636363;
+	background: rgba(0,0,0,0.3);
 	color:#fff;
 }
 @media screen and (min-width: 1200px) {
@@ -68,7 +68,7 @@ body{
 		width: 100% !important;
 	}
 	.demo{
-		left: :8%!important;
+		left: 8% !important;
 		width: 70% !important;
 	}
 }
@@ -89,16 +89,25 @@ body{
 	}
 }
 /*loading动画，网速差时缓冲，虽然没什么用*/
-#loading {
-	font-size: 10px;
+#loading span{
+  position:absolute;
+top:180px;
+left:50%;
+font-size:40px;
+color:#333;
+
+}
+
+#loading div{
+	font-size: 12px;
 	width: 1em;
 	height: 1em;
 	border-radius: 50%;
 	margin: 300px auto;
-	box-shadow: 0 -2em rgba(99, 99, 99, 1), 1.414em -1.414em rgba(99, 99, 99, 0.875), 2em 0 rgba(99, 99, 99, 0.75), 1.414em 1.414em rgba(99, 99, 99, 0.625), 0 2em rgba(99, 99, 99, 0.5), -1.414em 1.414em rgba(99, 99, 99, 0.375), -2em 0 rgba(99, 99, 99, 0.25), -1.414em -1.414em rgba(99, 99, 99, 0.125);
-	-ms-animation: rotate 1s infinite forwards steps(8, end);
-	-webkit-animation: rotate 1s infinite forwards steps(8, end);
-	animation: rotate 1s infinite forwards steps(8, end);
+	box-shadow: 0 -2em rgba(41, 41, 41, 0.8), 1.414em -1.414em rgba(41, 41, 41, 0.7), 2em 0 rgba(41, 41, 41, 0.6), 1.414em 1.414em rgba(41, 41, 41, 0.5), 0 2em rgba(41, 41, 41, 0.4), -1.414em 1.414em rgba(41, 41, 41, 0.3), -2em 0 rgba(41, 41, 41, 0.2), -1.414em -1.414em rgba(41, 41, 41, 0.1);
+	-ms-animation: rotate 1s infinite;
+	-webkit-animation: rotate 1s infinite;
+	animation: rotate 1s infinite;
 }
 @-webkit-keyframes rotate {
 	100% {
@@ -110,6 +119,10 @@ body{
 		transform: rotate(360deg);
 	}
 }
+#main{
+display:none;
+}
+
 /*头部*/
 .fuck_ie{
 	background: #2a2a2a;
@@ -536,7 +549,7 @@ body{
 .round{
 	opacity: 0;
 	left: 46px;
-	top: -9%;
+	top: 0;
 	width: 26px;
 	height: 26px;
 	border-radius: 50%;
@@ -581,18 +594,19 @@ body{
 	left: 41%;
 }
 .wraper:nth-child(2) .round:before{
-	content: "2016.06";
-}
-.wraper:nth-child(3) .round:before{
-	content: "2016.07";
-}
-.wraper:nth-child(4) .round:before{
-	content: "2016.08";
-}
-.wraper:nth-child(5) .round:before{
 	content: "2016.09";
 }
+.wraper:nth-child(3) .round:before{
+	content: "2016.09";
+}
+.wraper:nth-child(4) .round:before{
+	content: "2016.07";
+}
+.wraper:nth-child(5) .round:before{
+	content: "2016.05";
+}
 .way{
+top: 30px;
 	position: absolute;
 	width: 3px;
 	background-color: #636363;
@@ -614,11 +628,12 @@ body{
 	transition: all 1s ease .4s;
 }
 .demo .title{
+    z-index: 1;
 	-webkit-box-shadow: 1px 3px 5px 0 rgba(0,0,0,0.16);
 	box-shadow: 1px 3px 5px 0 rgba(0,0,0,0.16);
 	position: absolute;
 	left: 0;
-	top: -50px;
+	top: 0;
 	background-color: #4A4949;
 	padding: 7px;
 	-webkit-border-radius: 3px;
@@ -642,6 +657,7 @@ body{
 	top: 0;
 }
 .demo .text{
+z-index: 2;
 	border-radius: 3px;
 	box-sizing: border-box;
 	height: 100%;
@@ -957,7 +973,7 @@ body{
 	position:fixed;
 	z-index: 9;
 	top: 5%;
-	right: 5%;
+	right: 3%;
 	width: 35px;
 	height: 35px;
 	-webkit-border-radius: 50%;
@@ -1006,7 +1022,7 @@ body{
 	position: fixed;
 	top: 15%;
 	z-index: 9;
-	left: 5%;
+	left: 3%;
 	transition: all 1s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
@@ -1105,7 +1121,7 @@ body{
 	transition: left .5s 1.2s, opacity .5s 3.2s;
 }
 .answer p{
-	right: 5%;
+	right: 3%;
 	opacity: 0;
 	z-index: 17;
 	display: inline-block;
@@ -1119,6 +1135,7 @@ body{
 	box-shadow: 2px 2px 5px 3px rgba(256,255,256,0.26);
 }
 .hello_bye{
+display:none;
 	position:fixed;
 	overflow: hidden;
 	font-size: 40px;
