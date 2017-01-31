@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-COMPATIBLE" content="chrome=1,IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>黄植科-前端开发</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="dist/css/resume.min.css">
+	<script>
+	var timeStart = new Date();
+	// 测试着玩，缓存 js ,此时不会被执行
+	var img = new Image();
+	img.onload = function() {
+		alert("ok"); // 返回js文件MIME不是图片，onload不会触发
+	};
+	img.src = "dist/js/resume.min.js";
+	var js = document.createElement("script");
+	// 此时执行 js
+	js.src = img.src;
+	document.getElementsByTagName("head")[0].appendChild(js);
+	// 优点：异步加载，下载并行，不阻塞渲染
+	</script>
+</head>
+
+<body>
+	<div id="loading" class="loading">
+		<div></div>
+	</div>
+	<div id="main" class="main">
+		<!-- 关于我 -->
+		<div class="about-cover">
+			<div class="about-cover-top cf">
+				<div class="loc-job">在广东就行</div>
+				<div class="edu">
+					<div>中国海洋大学&nbsp;&nbsp;985&nbsp;&nbsp;211工程&nbsp;&nbsp;2017&nbsp;&nbsp;大四应届</div>
+					<div class="hehe">都是泪</div>
+				</div>
+			</div>
+			<div class="about">
+				<div class="me"><img src="dist/img/me.png" alt="人丑莫怪"></div>
+				<div>Love coding</div>
+				<p>我叫黄植科</p>
+				<p>22岁，真的</p>
+				<p>喜欢编程，喜欢IT</p>
+				<p>点击右上红点可以面试我</p>
+				<p>目前在寻找前端开发的职位，希望能加入一个氛围良好的团队 :)</p>
+			</div>
+			<div class="cover-down">
+				<div id="cover-down"></div>
+			</div>
+		</div>
+		<!-- 能力 -->
+		<div id="skills-wraper" class="skills-wraper">
+			<div class="skills-left">
+				<div class="skills-box">
+					<div class="skills-item">
+						能编写结构清晰的 HTML / CSS 代码，并确保良好兼容（有移动端及响应式经验）
+					</div>
+				</div>
+				<div class="skills-box">
+					<div class="skills-item">
+						<div class="skills-title-important">JavaScript</div>
+						熟悉原生 JavaScript ，基础扎实，能用原生 JavaScript 完成前端工作 </br>
+						造过轮子</br>
+					</div>
+				</div>
+				<div class="skills-box">
+					<div class="skills-item">
+						熟悉 JQuery 使用，了解一些原理</div>
+				</div>
+			</div>
+			<div class="skills-right">
+				<div class="skills-box">
+					<div class="skills-item"></div>
+				</div>
+				<div class="skills-box">
+					<div class="skills-item">喜欢简洁，关心性能，注重代码的规范</div>
+				</div>
+				<div class="skills-box">
+					<div class="skills-item">熟悉 AJAX ，能处理 JSON 数据</div>
+				</div>
+				<div class="skills-box">
+					<div class="skills-item">其它：
+						<br>熟悉 Git 基本命令及操作
+						<br>喜欢新技术，系统学习过 ES6, Node.js, Require.js 等，能较快上手
+						<br>英语六级（525分），能较流畅阅读英文文档 </div>
+				</div>
+				<div class="skills-box">
+					<div class="skills-item">熟悉 Gulp ，能使用其插件完成自动化构建</div>
+				</div>
+			</div>
+		</div>
+		<!-- 作品 -->
+		<div id="works-wraper" class="works-wraper">
+			<div class="works-item">
+				<div class="works-timeline">
+					<div class="works-point"></div>
+				</div>
+				<div class="works-content ">
+					<div class="works-title">在线简历</div>
+					<div class="works-description">
+						<p>动画由原生JavaScript及CSS3实现，图标由CSS3绘制，使用Gulp 自动处理兼容、合并、压缩，完全原创 </p>
+						<a class="works-link" href="https://github.com/huangzhike/about" target="_blank"></a>
+					</div>
+					<div class="works-tags"><span>响应式</span><span>原生JavaScript</span><span>CSS3</span></div>
+				</div>
+			</div>
+			<div class="works-item">
+				<div class="works-timeline">
+					<div class="works-point"></div>
+				</div>
+				<div class="works-content ">
+					<div class="works-title">个人博客</div>
+					<div class="works-description">
+						<p>基于Node.js，使用Hexo搭建，GitHub托管页面，主要存放学习中的笔记，平时的一些体会</p>
+						<a class="works-link" href="https://huangzhike.github.io/" target="_blank"></a>
+					</div>
+					<div class="works-tags"><span>博客</span><span>笔记</span><span>HEXO</span></div>
+				</div>
+			</div>
+			<div class="works-item">
+				<div class="works-timeline">
+					<div class="works-point"></div>
+				</div>
+				<div class="works-content ">
+					<div class="works-title">单页应用</div>
+					<div class="works-description">
+						<p>基于hashchange事件实现，前端route根据hash值AJAX请求HTML片段，实现无缝更新，同时达到原生应用的体验 </p>
+						<p>支持多个js脚本异步加载或回调加载，支持新旧视图页面切换动画，原生JavaScript实现 </p>
+						<a class="works-link" href="https://huangzhike.github.io/spa/" target="_blank"></a>
+					</div>
+					<div class="works-tags"><span>SPA</span><span>原生JavaScript</span><span>CSS3</span></div>
+				</div>
+			</div>
+			<div class="works-item">
+				<div class="works-timeline">
+					<div class="works-point"></div>
+				</div>
+				<div class="works-content ">
+					<div class="works-title">豆瓣音乐搜索</div>
+					<div class="works-description">
+						<p>使用豆瓣音乐API，用封装的JSONP函数跨域请求数据，根据返回JSON，通过模板引擎动态生成页面，原生JavaScript实现 </p>
+						<a class="works-link" href="https://huangzhike.github.io/douban/" target="_blank"></a>
+					</div>
+					<div class="works-tags"><span>JSONP</span><span>跨域</span><span>模板引擎</span></div>
+				</div>
+			</div>
+			<div class="works-item">
+				<div class="works-timeline">
+					<div class="works-point"></div>
+				</div>
+				<div class="works-content ">
+					<div class="works-title">swiper</div>
+					<div class="works-description">
+						<p>轮播组件，兼容移动端触摸滑动与PC端鼠标拖拽事件，原生JavaScript实现 </p>
+						<p>支持回弹动画及更多自定义配置如分页，cubic-bezier动画曲线等等 </p>
+						<a class="works-link" href="https://huangzhike.github.io/swiper/" target="_blank"></a>
+					</div>
+					<div class="works-tags"><span>轮播</span><span>组件</span><span>原生JavaScript</span><span>CSS3</span></div>
+				</div>
+			</div>
+			<div class="works-item">
+				<div class="works-timeline">
+					<div class="works-point"></div>
+				</div>
+				<div class="works-content ">
+					<div class="works-title">slidePages</div>
+					<div class="works-description">
+						<p>全屏单页滚动，兼容PC端鼠标及按键事件、移动端滑动事件 </p>
+						<p>支持自定义动画曲线，原生JavaScript实现!</p>
+						<a class="works-link" href="https://huangzhike.github.io/slidePages/" target="_blank"></a>
+					</div>
+					<div class="works-tags"><span>原生JavaScript</span><span>CSS3</span></div>
+				</div>
+			</div>
+			<div class="works-item">
+				<div class="works-timeline">
+					<div class="works-point"></div>
+				</div>
+				<div class="works-content ">
+					<div class="works-title">lazyLoad component</div>
+					<div class="works-description">
+						<p>图片懒加载组件，当图片出现时才向服务器请求图片，降低首次加载时间</p>
+						<p>滚动最底时AJAX请求，根据返回JSON动态插入DOM更新页面</p>
+						<p>支持函数节流</p>
+						<a class="works-link" href="https://huangzhike.github.io/lazyLoad/" target="_blank"></a>
+					</div>
+				</div>
+			</div>
+			<div class="works-item">
+				<div class="works-timeline">
+					<div class="works-point"></div>
+				</div>
+				<div class="works-content ">
+					<div class="works-title">modal component</div>
+					<div class="works-description">
+						<p>弹窗组件，支持自定义Normal, Alert, Prompt, Action类型，支持回调</p>
+						<a class="works-link" href="https://huangzhike.github.io/modal/" target="_blank"></a>
+					</div>
+				</div>
+			</div>
+			<div class="works-item">
+				<div class="works-timeline">
+					<div class="works-point"></div>
+				</div>
+				<div class="works-content ">
+					<div class="works-title">offCanvas component</div>
+					<div class="works-description">
+						<p>侧边栏组件，支持自定义push, overlay, reveal三种类型 </p>
+						<a class="works-link" href="https://huangzhike.github.io/offCanvas/" target="_blank"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 底部 -->
+		<div id="footer" class="footer">
+			<div class="contact-me cf">
+				<div class="contact-title">&lt;&nbsp;CONTACT&nbsp;ME&nbsp;/&nbsp;&gt;</div>
+				<div class="contact-item">
+					<span><span class="mail"></span></span>
+					<div>heavenlystate@163.com</div>
+				</div>
+				<div class="contact-item">
+					<span><span class="tel"></span></span>
+					<div>15908067842（待更换）</div>
+				</div>
+				<div class="contact-item">
+					<span><span class="wechat"><span></span></span>
+					</span>
+					<div>shining_fingers</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<span>&copy; 2017&nbsp;HUANGZHIKE</span>
+				<a href="dist/files/应聘前端开发_黄植科_中国海洋大学_15908067842.pdf" target="_blank" download="应聘前端开发_黄植科_中国海洋大学_15908067842.pdf" class="resume-download">
+					<div>pdf简历下载</div>
+				</a>
+			</div>
+		</div>
+		<div id="bugfix" style="font-size: 0;overflow: hidden;">世界之窗6有问题，不过我已经不用了</div>
+		<!-- 回到顶部 -->
+		<span id="to-top" class="to-top"></span>
+	</div>
+	<div class="other-shits">
+		<!-- 背景遮罩及关闭按钮-->
+		<div id="overlay-up" class="overlay-up"></div>
+		<div id="overlay-down" class="overlay-down"></div>
+		<div id="close" class="close"></div>
+		<!-- 点击面试 -->
+		<div id="try-me-out" class="try-me-out">
+			<div>Let's Talk!</div>
+			<span></span>
+		</div>
+		<!-- 打招呼 -->
+		<div id="hello" class="hello-bye"><span id="time"></span></div>
+		<!-- 问题列表 -->
+		<div id="question-box" class="question-box">
+			<div><span>1</span>
+				<div class="question-item">自我介绍？</div>
+			</div>
+			<div><span>2</span>
+				<div class="question-item">为什么选择前端？</div>
+			</div>
+			<div><span>3</span>
+				<div class="question-item">和计算机专业相比，你的优劣？</div>
+			</div>
+		</div>
+		<!-- 我的回答 -->
+		<div>
+			<div class="answer-item">
+				<p>你好，我叫黄植科</p>
+				<p>22岁，真的</p>
+				<p>现在大四，学习前端大半年了</p>
+				<p>性格比较沉稳，喜欢实干</p>
+			</div>
+			<div class="answer-item">
+				<p>这是个悲伤的故事</p>
+				<p>当年我的分数可以上华理，却一心想学水产，创业</p>
+				<p>后来我后悔了，呵呵（其实我应该学计算机）</p>
+				<p>老实说，编程虽然累，但也挺有意思，适合我的性格</p>
+			</div>
+			<div class="answer-item">
+				<p>我一直觉得，专业限制不了人的发展，限制发展的是自身</p>
+				<p>计算机专业（我指的是大学四年不是混日子的人）编程基础好</p>
+				<p>个人来说，我自认为学习能力比较强，学得也快</p>
+				<p>能力因人而异，我不一定比他们差！</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

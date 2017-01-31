@@ -1,0 +1,114 @@
+/*reset css*/
+html,
+body,
+span,
+div,
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+ol,
+ul,
+li,
+input,
+button {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+
+img {
+	border: none;
+	width: 100%;
+}
+
+.cf {
+	zoom: 1;
+}
+
+.cf:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+html {
+	font-size: 62.5%;
+	height: 100%;
+}
+
+body {
+	margin: 0 auto;
+	height: 100%;
+	max-width: 1920px;
+	color: #FFFFF0;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	font-size: 1.6rem;
+	/*将来适配字体*/
+}
+
+::selection {
+	background: rgba(0, 0, 0, 0.3);
+	color: #fff;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, .1);
+}
+
+.main {
+	display: none;
+	height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+	.edu,
+	.try-me-out,
+	.works-tags {
+		display: none !important;
+	}
+	.contact-item,
+	.skills-box,
+	.skills-left,
+	.skills-right,
+	.works-content {
+		width: 100%!important;
+	}
+	.skills-wraper {
+		padding: 0!important;
+	}
+	.skills-item {
+		padding: 10px !important;
+		font-size: 12px !important;
+	}
+	.footer {
+		font-size: 12px !important;
+	}
+	.contact-title {
+		font-size: 22px !important;
+	}
+}
