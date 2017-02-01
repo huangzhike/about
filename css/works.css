@@ -6,11 +6,12 @@
 }
 
 .works-content {
+	z-index: 2;
 	border-radius: 2px;
 /*	top: 20%;*/
 	text-align: center;
-/*	left: 0;
-	position: relative;*/
+/*	left: 0;*/
+	position: relative;
 	width: 40%;
 	opacity: 0;
 	background: #fff;
@@ -112,6 +113,7 @@ left: 44%;
 	content: "2016.12";
 }
 .works-timeline {
+	z-index: 0;
 	top: 0;
 	left: 50%;
 	position: absolute;
