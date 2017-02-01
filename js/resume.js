@@ -1,4 +1,3 @@
-
 (function() {
 
 	window.addEventListener("load", function() {
@@ -119,15 +118,22 @@
 		window.addEventListener("scroll", function() {
 			throttle(scrollFunc);
 		}, false);
+
+		function setHeight() {
+			// 某些浏览器有问题
+			var worksWraper = document.getElementById("works-wraper");
+			var footerHeight = document.getElementById("footer").offsetHeight;
+			worksWraper.style.marginBottom = footerHeight + "px";
+		}
 		// 更新
-		document.addEventListener("resize", function() {
+		window.addEventListener("resize", function() {
 			clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+			setHeight();
 		}, false);
 
 		var main = document.getElementById("main");
 		var loading = document.getElementById("loading");
 
-		var worksWraper = document.getElementById("works-wraper");
 		var overlayUp = document.getElementById("overlay-up");
 		var overlayDown = document.getElementById("overlay-down");
 
@@ -135,9 +141,7 @@
 			// 全部加载完成后关闭loading
 			loading.style.display = "none";
 			main.style.display = "block";
-			// 某些浏览器有问题
-			var footerHeight = document.getElementById("footer").offsetHeight;
-			worksWraper.style.marginBottom = footerHeight + "px";
+			setHeight();
 			// 关闭遮罩
 			overlayUp.classList.add("up-off");
 			overlayDown.classList.add("down-off");
@@ -327,7 +331,7 @@
 })();
 
 console.info("%c前端求职", "color:#fff;font-size:14px;text-shadow:1px 1px #000;background-color:#ed5565;padding:3px;border-radius:3px");
-console.log(["其实这是好几个月前写的，当时反复重写了一个月，最后也没完成", "从设计到代码都是自己原创（也参考了很多国外设计还有简历），开始想模仿Material Design", "最近重构了一下，虽然完全谈不上复用性，组件啊模块什么的", "当时觉得前端就应该搞花俏的特效，现在都是黑历史，我都想全部删了", "以前偏向CSS，现在更喜欢JavaScript", "不过都是几个月前的事了，现在更偏好逻辑性强的东西", "credit: http://www.apollozz.com/resume/index.html 曾经从上面得到了很多创意", "唉，好多想学计划学的都没时间，光是打基础就够喝好几壶了，想学JAVA..."].join("\n"));
+console.log(["其实这是好几个月前写的，当时反复重写了一个月，最后也没完成（那段时间瘦了好多，压力大）", "从设计到代码都是自己原创（也参考了很多国外设计还有简历），开始想模仿Material Design", "最近重构了一下，虽然完全谈不上复用性，组件啊模块什么的", "当时觉得前端就应该搞花俏的特效，现在都是黑历史，我都想全部删了", "以前偏向CSS，现在更喜欢JavaScript", "不过都是几个月前的事了，现在更偏好逻辑性强的东西", "credit: http://www.apollozz.com/resume/index.html 曾经从上面得到了很多创意", "唉，好多想学计划学的都没时间，光是打基础就够喝好几壶了，想学JAVA..."].join("\n"));
 
 // [].forEach.call(document.all,function(a){
 // 	a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16);

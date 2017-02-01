@@ -39,12 +39,11 @@
 				</div>
 			</div>
 			<div class="about">
-				<div class="me"><img src="dist/img/me.png" alt="人丑莫怪"></div>
-				<div>Love coding</div>
+				<div id="try-me-out" class="me"><img src="dist/img/me.png" alt="人丑莫怪"></div>
 				<p>我叫黄植科</p>
 				<p>22岁，真的</p>
 				<p>喜欢编程，喜欢IT</p>
-				<p>点击右上红点可以面试我</p>
+				<p>点击头像可以面试我</p>
 				<p>目前在寻找前端开发的职位，希望能加入一个氛围良好的团队 :)</p>
 			</div>
 			<div class="cover-down">
@@ -56,14 +55,14 @@
 			<div class="skills-left">
 				<div class="skills-box">
 					<div class="skills-item">
-						能编写结构清晰的 HTML / CSS 代码，并确保良好兼容（有移动端及响应式经验）
+						能编写结构清晰的 HTML / CSS 代码，并确保良好兼容
 					</div>
 				</div>
 				<div class="skills-box">
 					<div class="skills-item">
 						<div class="skills-title-important">JavaScript</div>
-						熟悉原生 JavaScript ，基础扎实，能用原生 JavaScript 完成前端工作 </br>
-						造过轮子</br>
+						熟悉原生 JavaScript ，能用原生 JavaScript 完成前端工作 </br>
+						基础扎实，造过轮子</br>
 					</div>
 				</div>
 				<div class="skills-box">
@@ -73,17 +72,16 @@
 			</div>
 			<div class="skills-right">
 				<div class="skills-box">
-					<div class="skills-item"></div>
+					<div class="skills-item">熟悉 AJAX ，能处理 JSON 数据</div>
 				</div>
 				<div class="skills-box">
 					<div class="skills-item">喜欢简洁，关心性能，注重代码的规范</div>
 				</div>
 				<div class="skills-box">
-					<div class="skills-item">熟悉 AJAX ，能处理 JSON 数据</div>
+					<div class="skills-item">熟悉 Git 基本命令及操作</div>
 				</div>
 				<div class="skills-box">
 					<div class="skills-item">其它：
-						<br>熟悉 Git 基本命令及操作
 						<br>喜欢新技术，系统学习过 ES6, Node.js, Require.js 等，能较快上手
 						<br>英语六级（525分），能较流畅阅读英文文档 </div>
 				</div>
@@ -101,10 +99,13 @@
 				<div class="works-content ">
 					<div class="works-title">在线简历</div>
 					<div class="works-description">
-						<p>动画由原生JavaScript及CSS3实现，图标由CSS3绘制，使用Gulp 自动处理兼容、合并、压缩，完全原创 </p>
-						<a class="works-link" href="https://github.com/huangzhike/about" target="_blank"></a>
+						<p>即本在线简历，下面所有项目源代码都在GitHub</p>
+						<p>动画由原生JavaScript及CSS3实现，包括面试部分，作品时间轴等</p>
+						<p>图标由CSS3结合伪类绘制，包括坐标、箭头、loading、邮箱、手机、微信、回到顶部等等图标，皆由CSS绘制</p>
+						<p>使用Gulp自动处理兼容、合并、压缩，重命名</p>
+						<p>完全原创，未压缩源代码请移步Github</p>
 					</div>
-					<div class="works-tags"><span>响应式</span><span>原生JavaScript</span><span>CSS3</span></div>
+					<div class="works-tags"><span>原生JavaScript</span><span>CSS3</span><span>响应式</span></div>
 				</div>
 			</div>
 			<div class="works-item">
@@ -114,10 +115,10 @@
 				<div class="works-content ">
 					<div class="works-title">个人博客</div>
 					<div class="works-description">
-						<p>基于Node.js，使用Hexo搭建，GitHub托管页面，主要存放学习中的笔记，平时的一些体会</p>
+						<p>基于Node.js，Hexo搭建，GitHub托管页面，主要存放平时学习的笔记，体会等</p>
+						<p>笔记整理得很好，来源大部分都有声明</p>
 						<a class="works-link" href="https://huangzhike.github.io/" target="_blank"></a>
 					</div>
-					<div class="works-tags"><span>博客</span><span>笔记</span><span>HEXO</span></div>
 				</div>
 			</div>
 			<div class="works-item">
@@ -127,8 +128,8 @@
 				<div class="works-content ">
 					<div class="works-title">单页应用</div>
 					<div class="works-description">
-						<p>基于hashchange事件实现，前端route根据hash值AJAX请求HTML片段，实现无缝更新，同时达到原生应用的体验 </p>
-						<p>支持多个js脚本异步加载或回调加载，支持新旧视图页面切换动画，原生JavaScript实现 </p>
+						<p>基于hashchange事件实现，router根据hash值AJAX请求HTML片段，实现页面切换平滑过渡，Loading动画，模拟原生应用的体验</p>
+						<p>支持多个js脚本异步加载或回调加载，原生JavaScript实现</p>
 						<a class="works-link" href="https://huangzhike.github.io/spa/" target="_blank"></a>
 					</div>
 					<div class="works-tags"><span>SPA</span><span>原生JavaScript</span><span>CSS3</span></div>
@@ -141,7 +142,7 @@
 				<div class="works-content ">
 					<div class="works-title">豆瓣音乐搜索</div>
 					<div class="works-description">
-						<p>使用豆瓣音乐API，用封装的JSONP函数跨域请求数据，根据返回JSON，通过模板引擎动态生成页面，原生JavaScript实现 </p>
+						<p>使用豆瓣音乐API，用封装的JSONP函数跨域请求数据，根据返回JSON，通过模板引擎动态生成页面，原生JavaScript实现</p>
 						<a class="works-link" href="https://huangzhike.github.io/douban/" target="_blank"></a>
 					</div>
 					<div class="works-tags"><span>JSONP</span><span>跨域</span><span>模板引擎</span></div>
@@ -154,11 +155,10 @@
 				<div class="works-content ">
 					<div class="works-title">swiper</div>
 					<div class="works-description">
-						<p>轮播组件，兼容移动端触摸滑动与PC端鼠标拖拽事件，原生JavaScript实现 </p>
-						<p>支持回弹动画及更多自定义配置如分页，cubic-bezier动画曲线等等 </p>
+						<p>轮播组件，兼容移动端触摸滑动与PC端鼠标拖拽事件，原生JavaScript实现</p>
+						<p>支持回弹动画及更多自定义配置如分页，cubic-bezier动画曲线等等</p>
 						<a class="works-link" href="https://huangzhike.github.io/swiper/" target="_blank"></a>
 					</div>
-					<div class="works-tags"><span>轮播</span><span>组件</span><span>原生JavaScript</span><span>CSS3</span></div>
 				</div>
 			</div>
 			<div class="works-item">
@@ -168,11 +168,10 @@
 				<div class="works-content ">
 					<div class="works-title">slidePages</div>
 					<div class="works-description">
-						<p>全屏单页滚动，兼容PC端鼠标及按键事件、移动端滑动事件 </p>
-						<p>支持自定义动画曲线，原生JavaScript实现!</p>
+						<p>全屏单页滚动，兼容PC端鼠标及按键事件、移动端滑动事件</p>
+						<p>支持自定义动画曲线，原生JavaScript实现</p>
 						<a class="works-link" href="https://huangzhike.github.io/slidePages/" target="_blank"></a>
 					</div>
-					<div class="works-tags"><span>原生JavaScript</span><span>CSS3</span></div>
 				</div>
 			</div>
 			<div class="works-item">
@@ -248,23 +247,21 @@
 		<div id="overlay-up" class="overlay-up"></div>
 		<div id="overlay-down" class="overlay-down"></div>
 		<div id="close" class="close"></div>
-		<!-- 点击面试 -->
-		<div id="try-me-out" class="try-me-out">
-			<div>Let's Talk!</div>
-			<span></span>
-		</div>
 		<!-- 打招呼 -->
 		<div id="hello" class="hello-bye"><span id="time"></span></div>
 		<!-- 问题列表 -->
 		<div id="question-box" class="question-box">
 			<div><span>1</span>
-				<div class="question-item">自我介绍？</div>
+				<div class="question-item">自我介绍</div>
 			</div>
 			<div><span>2</span>
-				<div class="question-item">为什么选择前端？</div>
+				<div class="question-item">为什么从事前端</div>
 			</div>
 			<div><span>3</span>
-				<div class="question-item">和计算机专业相比，你的优劣？</div>
+				<div class="question-item">和计算机专业相比，你的优劣</div>
+			</div>
+			<div><span>4</span>
+				<div class="question-item">缺少经验</div>
 			</div>
 		</div>
 		<!-- 我的回答 -->
@@ -279,13 +276,18 @@
 				<p>这是个悲伤的故事</p>
 				<p>当年我的分数可以上华理，却一心想学水产，创业</p>
 				<p>后来我后悔了，呵呵（其实我应该学计算机）</p>
-				<p>老实说，编程虽然累，但也挺有意思，适合我的性格</p>
+				<p>老实说，编程虽累，但也挺有意思，适合我的性格</p>
 			</div>
 			<div class="answer-item">
 				<p>我一直觉得，专业限制不了人的发展，限制发展的是自身</p>
 				<p>计算机专业（我指的是大学四年不是混日子的人）编程基础好</p>
 				<p>个人来说，我自认为学习能力比较强，学得也快</p>
 				<p>能力因人而异，我不一定比他们差！</p>
+			</div>
+			<div class="answer-item">
+				<p>虽然没有工作经验，但是我相信自己上手很快</p>
+				<p>而且我学习前端有大半年了（没有间断），平时也经常了解前端发展</p>
+				<p>所以，我也不算小白了吧</p>
 			</div>
 		</div>
 	</div>
