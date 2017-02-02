@@ -99,11 +99,14 @@
 				<div class="works-content ">
 					<div class="works-title">在线简历</div>
 					<div class="works-description">
-						<p>即本在线简历，下面所有项目源代码都在GitHub</p>
+						<p>即本简历，下面所有项目源代码都在 <a href="https://github.com/huangzhike" target="_blank">Github</a></p>
 						<p>动画由原生JavaScript及CSS3实现，包括面试部分，作品时间轴等</p>
-						<p>图标由CSS3结合伪类绘制，包括坐标、箭头、loading、邮箱、手机、微信、回到顶部等等图标</p>
+						<p>图标由CSS3结合伪类绘制，包括坐标、箭头、loading、邮箱、手机、微信、回到顶部等等</p>
 						<p>使用Gulp自动处理兼容、合并、压缩，重命名</p>
-						<p>完全原创，未压缩源代码请移步Github：https://github.com/huangzhike/about</p>
+						<p>未压缩源代码请移步 <a href="https://github.com/huangzhike/about" target="_blank">Github</a></p>
+						<div class="break-line"></div>
+						<p>由16年8月开始写了一个月，参考了很多国外的网站和简历，由设计到代码都是完全原创的，重写了很多次，也遇到了很多bug，隔了半年在17年2月把坑填完了</p>
+						<p>当时喜欢折腾CSS，弄些花俏的特效，现在更喜欢逻辑性强的JavaScript，也算成长吧</p>
 					</div>
 					<div class="works-tags"><span>原生JavaScript</span><span>CSS3</span><span>响应式</span></div>
 				</div>
@@ -116,7 +119,7 @@
 					<div class="works-title">个人博客</div>
 					<div class="works-description">
 						<p>基于Node.js，Hexo搭建，GitHub托管页面，主要存放平时学习的笔记，体会等</p>
-						<p>笔记整理得很好，来源大部分都有声明</p>
+						<p>整理的笔记主要是方便复习和查阅</p>
 						<a class="works-link" href="https://huangzhike.github.io/" target="_blank"></a>
 					</div>
 				</div>
@@ -128,9 +131,16 @@
 				<div class="works-content ">
 					<div class="works-title">单页应用</div>
 					<div class="works-description">
+					<p>一个简单的单页应用，包括router, AJAX, animation, 脚本加载部分</p>
 						<p>基于hashchange事件实现，router根据hash值AJAX请求HTML片段，实现页面切换平滑过渡，Loading动画，模拟原生应用的体验</p>
 						<p>支持多个js脚本异步加载或回调加载，原生JavaScript实现</p>
 						<a class="works-link" href="https://huangzhike.github.io/spa/" target="_blank"></a>
+						<div class="break-line"></div>
+						<p>遇到问题主要有：</p>
+							<p>1.开始是innerHTML更新页面，css和js都直接在html中引用，html缓存在sessionStorage中，结果css加载前有一段时间没有样式，预加载css解决</p>
+							<p>2.innerHTML中的script不会执行，于是AJAX完成后回调插入script，结果监听不了window.onload事件，这没办法，只能监听js的onload事件了，后来添加了异步与回调加载脚本两种方式</p>
+							<p>3.新页面加载后移除旧页面，但再次请求旧页面时绑定的DOM事件没了，于是保存移除的DOM，请求时再append</p>
+							<p>4.加入了回退动画，与打开新页面的动画不同，逻辑有些乱，这个见GitHub</p>
 					</div>
 					<div class="works-tags"><span>SPA</span><span>原生JavaScript</span><span>CSS3</span></div>
 				</div>
@@ -158,6 +168,8 @@
 						<p>轮播组件，兼容移动端触摸滑动与PC端鼠标拖拽事件，原生JavaScript实现</p>
 						<p>支持回弹动画及更多自定义配置如分页，cubic-bezier动画曲线等等</p>
 						<a class="works-link" href="https://huangzhike.github.io/swiper/" target="_blank"></a>
+						<div class="break-line"></div>
+						<p>主要是this的问题，在运行时由调用者决定，详情可以去项目主页查看 <a href="https://github.com/huangzhike/swiper" target="_blank">README</a> </p>
 					</div>
 				</div>
 			</div>
@@ -171,6 +183,10 @@
 						<p>全屏单页滚动，兼容PC端鼠标及按键事件、移动端滑动事件</p>
 						<p>支持自定义动画曲线，原生JavaScript实现</p>
 						<a class="works-link" href="https://huangzhike.github.io/slidePages/" target="_blank"></a>
+						<div class="break-line"></div>
+						<p>这个是16年7月写的一个小demo改编的</p>
+						<p>本来想监听transitionEnd事件的，考虑兼容，还是setTimeout简单</p>
+						<p>火狐浏览器鼠标事件和别的浏览器不同</p>
 					</div>
 				</div>
 			</div>
@@ -207,7 +223,7 @@
 				<div class="works-content ">
 					<div class="works-title">offCanvas component</div>
 					<div class="works-description">
-						<p>侧边栏组件，支持自定义push, overlay, reveal三种类型 </p>
+						<p>侧边栏组件，支持自定义push, overlay, reveal三种类型，待完善</p>
 						<a class="works-link" href="https://huangzhike.github.io/offCanvas/" target="_blank"></a>
 					</div>
 				</div>
@@ -238,7 +254,7 @@
 				</a>
 			</div>
 		</div>
-		<div id="bugfix" style="font-size: 0;overflow: hidden;">世界之窗6有问题，不过我已经不用了</div>
+		<div id="bugNOTfixed" style="font-size: 0;">世界之窗6有margin问题，不管了</div>
 		<!-- 回到顶部 -->
 		<span id="to-top" class="to-top"></span>
 	</div>
