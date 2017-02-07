@@ -232,7 +232,7 @@ color: #FFFFE0;*/
 	opacity: 0;
 	top: 85%;
 	right: 2%;
-/*	visibility: hidden;*/
+	visibility: hidden;
 	position: fixed;
 	width: 50px;
 	height: 30px;
@@ -246,7 +246,7 @@ color: #FFFFE0;*/
 }
 
 .to-top.to-top-on {
-/*	visibility: visible;*/
+	visibility: visible;
 	opacity: 1;
 }
 

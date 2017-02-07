@@ -63,12 +63,26 @@
 		var worksTimeline = document.getElementsByClassName("works-timeline");
 		// 节流函数
 		var throttle = (function() {
-			var timer;
+			var timer, start;
 			return function(fn) {
+
+				var curr = +new Date(); // 转为number
 				timer && clearTimeout(timer);
-				timer = setTimeout(fn, 200);
-			}
+
+				if (!start) {
+					start = curr; // 记录第一次调用的时间戳
+				}
+
+				// 每次调用都拿当前时间跟上次时间比，超出200ms至少执行一次
+				if (curr - start >= 200) {
+					fn();
+					start = curr; // 更新记录时间
+				} else {
+					timer = setTimeout(fn, 200);
+				}
+			};
 		})();
+
 		// 滚动触发的函数，包装起来
 		function scrollFunc() {
 			var distance = document.documentElement.scrollTop || document.body.scrollTop;
@@ -79,21 +93,9 @@
 			}
 
 			for (var i = 0; i < worksItem.length; i++) {
-				// 非最后一个作品
-				if (i !== worksItem.length - 1) {
-					if (worksItem[i].offsetTop - clientHeight / 2 < distance && distance < worksItem[i + 1].offsetTop - clientHeight / 2) {
-						showWorks(i); // 显示当前作品
-					} else {
-						hideWorks(i); // 非当前显示作品
-					}
-				} else {
-					// 底部作品
-					if (worksItem[i].offsetTop - clientHeight / 2 < distance) {
-						showWorks(i);
-					} else {
-						hideWorks(i);
-					}
-				}
+
+				worksItem[i].offsetTop < distance + clientHeight / 2 ? showWorks(i) : hideWorks(i);
+
 			}
 			// 显示回到顶部
 			distance >= clientHeight ? toTop.classList.add("to-top-on") : toTop.classList.remove("to-top-on");
