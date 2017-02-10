@@ -48,13 +48,13 @@
 		var toTop = document.getElementById("to-top");
 
 		coverDown.addEventListener("click", function() {
-			scrollTo(clientHeight, 2000);
-		}, false);
+			scrollTo(clientHeight, 1500);
+		});
 
 		// 回到顶部函数
 		toTop.addEventListener("click", function() {
-			scrollTo(0, 2000);
-		}, false);
+			scrollTo(0, 1500);
+		});
 
 		var skills = document.getElementById("skills-wraper");
 		var worksContent = document.getElementsByClassName("works-content");

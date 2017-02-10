@@ -1,4 +1,3 @@
-
 /*js 与页面载入完成前的loading动画*/
 
 .loading {
@@ -9,12 +8,15 @@
 }
 
 .loading div {
-	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/*transform: translate3d(-50%, 50%, 0);*/
 	font-size: 12px;
 	width: 0.5em;
 	height: 0.5em;
 	border-radius: 50%;
-	margin: 20% auto;
+	/*margin: 20% auto;*/
 	box-shadow: 0 -2em rgba(255, 255, 255, 0.8), 1.2554em -1.2554em rgba(255, 255, 255, 0.7), 2em 0 rgba(255, 255, 255, 0.6), 1.2554em 1.2554em rgba(255, 255, 255, 0.5), 0 2em rgba(255, 255, 255, 0.4), -1.2554em 1.2554em rgba(255, 255, 255, 0.3), -2em 0 rgba(255, 255, 255, 0.2), -1.2554em -1.2554em rgba(255, 255, 255, 0.1);
 	-ms-animation: rotate 1s infinite;
 	-webkit-animation: rotate 1s infinite;
@@ -62,9 +64,11 @@
 	bottom: 0;
 }
 
-.up-off,.down-off {
+.up-off,
+.down-off {
 	height: 0 !important;
 }
+
 
 /*关闭按钮*/
 
@@ -183,14 +187,14 @@
 	opacity: 1;
 }
 
- .question-item {
+.question-item {
 	opacity: 0;
 	padding: 4px 30px;
 	margin-left: 15px;
 	display: inline-block;
 	color: #000;
 	border-radius: 1px;
-/*	font-size: 18px;*/
+	/*	font-size: 18px;*/
 	-webkit-box-shadow: 0px 0px 12px 4px rgba(256, 255, 256, 0.26);
 	box-shadow: 0px 0px 12px 4px rgba(256, 255, 256, 0.26);
 	transition: all .5s ease;
@@ -210,7 +214,7 @@
 .question-box span {
 	line-height: 33px;
 	color: #000;
-/*	font-size: 22px;*/
+	/*	font-size: 22px;*/
 	text-align: center;
 	box-shadow: 0px 0px 12px 4px rgba(256, 255, 256, 0.26);
 	display: inline-block;
