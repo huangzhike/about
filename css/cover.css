@@ -87,24 +87,24 @@
 	top: 35px;
 	left: 5px;
 }
-
+/*
 .edu {
 	position: relative;
-	/*	-webkit-transition: all .3s ease-out;
+		-webkit-transition: all .3s ease-out;
 	-ms-transition: all .3s ease-out;
-	transition: all .3s ease-out;*/
+	transition: all .3s ease-out;
 }
 
 .edu:hover .hehe {
 	opacity: 1;
 	transform: translateY(100%);
 }
-
+*/
 
 /*.edu .hehe {
 	left: 25%;
 }*/
-
+/*
 .hehe {
 	z-index: 1;
 	height: 35px;
@@ -136,7 +136,7 @@
 	bottom: 100%;
 	right: 10%;
 }
-
+*/
 
 /*
 .about>div>div {
