@@ -5,6 +5,13 @@
 	background-color: #eee;
 }
 
+.works-experience {
+	padding: 40px;
+	color: #666;
+	font-size: 18px;
+	text-align: center;
+}
+
 .works-content {
 	z-index: 2;
 	border-radius: 4px;
@@ -26,8 +33,6 @@ box-shadow: 0 2px 10px rgba(0,0,0,0.2);*/
 	-webkit-perspective: 1000;
 	perspective: 1000;
 }
-
-
 
 .works-content p {
 	color: #666;
@@ -143,6 +148,8 @@ left: 44%;
 	/*left: 44px;*/
 	transition: all .5s ease 1s;
 }
+
+
 /*
 .works-title {
 	background-color: #2b3442;
@@ -183,6 +190,8 @@ left: 44%;
 	border-left: 1px solid transparent;
 	transform: rotate(45deg);
 }
+
+
 /*
 .works-tags span:before {
 	content: "";
@@ -196,6 +205,8 @@ left: 44%;
 	transition: all .6s;
 }
 */
+
+
 /*
 .works-tags span {
 	position: relative;
@@ -213,9 +224,11 @@ left: 44%;
 }
 */
 
+
 /*
 .works-tags {}
 */
+
 
 /*.works-tags span:hover {
 	background-color: #222a36;
@@ -226,6 +239,7 @@ left: 44%;
 	background-color: #fff;
 }
 */
+
 
 /*回到顶部*/
 
