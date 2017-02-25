@@ -123,7 +123,7 @@ transition:opacity 2s 3.3s;
 .skills-item {
 	padding: 30px;
 	/*	text-shadow: none;*/
-	line-height: 25px;
+	line-height: 1.5;
 	color: #2B2D35;
 	font-size: 16px;
 	/*	-webkit-backface-visibility: hidden;

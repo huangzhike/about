@@ -6,10 +6,10 @@
 }
 
 .works-experience {
-	padding: 40px;
+	margin: 0 19%;
+	padding: 40px 0;
 	color: #666;
 	font-size: 18px;
-	text-align: center;
 }
 
 .works-content {
@@ -22,16 +22,15 @@
 	position: relative;
 	width: 45%;
 	opacity: 0;
-	background: #fff;
 	/*-webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 box-shadow: 0 2px 10px rgba(0,0,0,0.2);*/
 	margin: 0 auto;
 	padding: 2%;
 	transition: all 1s;
-	-webkit-backface-visibility: hidden;
+	/*	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 	-webkit-perspective: 1000;
-	perspective: 1000;
+	perspective: 1000;*/
 }
 
 .works-content p {
@@ -48,10 +47,11 @@ box-shadow: 0 2px 10px rgba(0,0,0,0.2);*/
 	opacity: 1;
 }
 
-.works-content.works-content-on:hover {
+
+/*.works-content.works-content-on:hover {
 	-webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
 	box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
-}
+}*/
 
 .works-item {
 	/*width: 100%;*/
@@ -138,7 +138,7 @@ left: 44%;
 .works-timeline {
 	z-index: 0;
 	top: 0;
-	left: 50%;
+	left: 20%;
 	position: absolute;
 	width: 2px;
 	background-color: #2b3442;
