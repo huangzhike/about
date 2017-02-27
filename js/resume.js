@@ -4,6 +4,7 @@
 
 		var timeEnd = new Date();
 		console.log("耗时：" + (timeEnd - timeStart));
+		var isMobile = "ontouchstart" in window;
 
 		var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
 		// 滚动函数
@@ -166,9 +167,7 @@
 
 		// 点击面试	
 		tryMeOut.addEventListener("click", function() {
-
-			var time = document.getElementById("time");
-			showTime(time);
+			showTime(hello);
 			// 获得打招呼宽度
 			hello.style.visibility = "hidden";
 			hello.style.display = "block";
@@ -177,7 +176,6 @@
 			hello.style.marginLeft = -1 * hello.width / 2 + "px";
 			hello.style.width = "50px";
 			hello.style.display = "none";
-
 			// 我的回答赋值固定宽度，避免变形
 			for (var i = 0; i < answerItem.length; i++) {
 				var p = answerItem[i].getElementsByTagName("p");
@@ -198,22 +196,32 @@
 				hello.style.width = hello.width + "px";
 			}, 1000);
 
-			setTimeout(function() {
-				hello.style.display = "none";
-				questionBox.style.display = "block";
-				questionBox.offsetWidth = questionBox.offsetWidth;
+			if (!isMobile) {
 
-				questionBox.classList.add("box-on");
-				close.style.display = "block";
-			}, 2500);
+				setTimeout(function() {
+					hello.style.display = "none";
+					questionBox.style.display = "block";
+					questionBox.offsetWidth = questionBox.offsetWidth;
 
-			for (var i = 0; i < questionItem.length; i++) {
-				(function(i) {
-					setTimeout(function() {
-						questionItem[i].classList.add("que-on");
-					}, 3500 + i * 500);
-				})(i);
+					questionBox.classList.add("box-on");
+					close.style.display = "block";
+				}, 2500);
+
+				for (var i = 0; i < questionItem.length; i++) {
+					(function(i) {
+						setTimeout(function() {
+							questionItem[i].classList.add("que-on");
+						}, 3500 + i * 500);
+					})(i);
+				}
+			} else {
+				setTimeout(function() {
+					hello.style.display = "none";
+					close.click();
+				}, 2500);
+
 			}
+
 			// 每次都初始化
 			num = -1;
 			isOn = false;
@@ -314,6 +322,12 @@
 		}
 		// 弱智函数
 		function showTime(obj) {
+			if (isMobile) {
+				obj.innerHTML = "请PC端观看";
+				obj.style.fontSize = "12px";
+				return;
+
+			}
 			var time = new Date().getHours();
 			if (time > 5 && time < 12) {
 				obj.innerHTML = "早上好";
