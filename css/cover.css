@@ -161,8 +161,8 @@
 .me {
 	margin: 30px auto;
 	overflow: hidden;
-	width: 150px;
-	height: 150px;
+	width: 120px;
+	height: 120px;
 	box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.16);
 	border-radius: 50%;
 	/*	color: #ef6443;*/
